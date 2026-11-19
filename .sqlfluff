@@ -1,0 +1,8 @@
+[sqlfluff]
+dialect = mariadb
+max_line_length = 120
+# `year` is a column in the Lab 9 movies table (kept from previous terms) and in the book club demo.
+exclude_rules = RF04
+
+[sqlfluff:indentation]
+tab_space_size = 2

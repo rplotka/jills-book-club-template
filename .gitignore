@@ -1,0 +1,3 @@
+# The database password lives in this file. Never commit it.
+includes/config.inc.php
+.DS_Store

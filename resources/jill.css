@@ -1,0 +1,316 @@
+/* jill.css - Jill's Book Club. Colors are custom properties, so one place changes the theme. */
+
+:root {
+   --page-bg: #f4efe6;
+   --panel-bg: #fffdf8;
+   --text: #2b2118;
+   --muted: #6b5d50;
+   --accent: #7a3e1d;
+   --accent-dark: #5a2b12;
+   --rule: #d8cbb6;
+   --head-bg: #efe4d2;
+   --stripe: #faf5ec;
+   --star: #c8860d;
+   --error-bg: #fdecee;
+   --error-border: #b3001b;
+   --success-bg: #eaf5ea;
+   --success-border: #2e6b2e;
+}
+
+* {
+   box-sizing: border-box;
+}
+
+body {
+   margin: 0;
+   font-family: Georgia, "Times New Roman", serif;
+   line-height: 1.45;
+   color: var(--text);
+   background-color: var(--page-bg);
+}
+
+a {
+   color: var(--accent);
+}
+
+/* header and menu */
+.site-header {
+   max-width: 820px;
+   margin: 0 auto;
+   padding: 1rem 1rem 0;
+}
+
+.site-title {
+   margin: 0 0 0.4rem;
+   font-size: 1.8rem;
+   font-variant: small-caps;
+}
+
+.site-title a {
+   color: var(--accent-dark);
+   text-decoration: none;
+}
+
+.menu {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 0.4rem;
+   margin: 0;
+   padding: 0;
+   list-style: none;
+}
+
+.menu a {
+   display: block;
+   padding: 0.3rem 1.1rem;
+   color: var(--text);
+   background-color: var(--head-bg);
+   border-radius: 4px 4px 0 0;
+   text-decoration: none;
+}
+
+.menu a:hover,
+.menu a:focus-visible {
+   text-decoration: underline;
+}
+
+.menu a[aria-current="page"] {
+   background-color: var(--panel-bg);
+   font-weight: bold;
+}
+
+/* the page */
+main {
+   max-width: 820px;
+   margin: 0 auto;
+   padding: 0.75rem 1.25rem 1.25rem;
+   background-color: var(--panel-bg);
+   border-bottom: 2px solid var(--rule);
+}
+
+h1 {
+   margin: 0.25rem 0 0.5rem;
+   font-size: 1.5rem;
+}
+
+h2 {
+   margin: 1rem 0 0.5rem;
+   padding-bottom: 0.15rem;
+   font-size: 1.15rem;
+   color: var(--accent-dark);
+   border-bottom: 2px solid var(--rule);
+}
+
+.columns {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+   gap: 0 1.5rem;
+}
+
+.next-meeting {
+   padding: 0.4rem 0.6rem;
+   background-color: var(--head-bg);
+   border-left: 4px solid var(--accent);
+}
+
+.hint {
+   color: var(--muted);
+   font-size: 0.9rem;
+}
+
+/* messages */
+.message {
+   margin: 0.6rem 0;
+   padding: 0.5rem 0.75rem;
+   border-left: 5px solid;
+}
+
+.message p,
+.message ul {
+   margin: 0.2rem 0;
+}
+
+.error {
+   background-color: var(--error-bg);
+   border-color: var(--error-border);
+}
+
+.success {
+   background-color: var(--success-bg);
+   border-color: var(--success-border);
+}
+
+/* reviews and lists */
+.stars {
+   color: var(--star);
+   letter-spacing: 0.05em;
+   white-space: nowrap;
+}
+
+.review-list,
+.top-list {
+   margin: 0;
+   padding-left: 1.2rem;
+}
+
+.review-list li,
+.top-list li {
+   margin-bottom: 0.4rem;
+}
+
+.review-list .by {
+   color: var(--muted);
+}
+
+.review-list q {
+   display: block;
+   font-style: italic;
+}
+
+/* tables */
+table.data {
+   width: 100%;
+   border-collapse: collapse;
+   border: 1px solid var(--rule);
+}
+
+.data th,
+.data td {
+   padding: 0.25rem 0.5rem;
+   text-align: left;
+   vertical-align: top;
+}
+
+.data thead th {
+   background-color: var(--head-bg);
+}
+
+.data tbody tr:nth-child(even) {
+   background-color: var(--stripe);
+}
+
+.data form {
+   margin: 0;
+}
+
+/* forms */
+.stack-form {
+   padding: 0.6rem 0.75rem;
+   border: 1px solid var(--rule);
+}
+
+.field {
+   display: flex;
+   flex-wrap: wrap;
+   align-items: center;
+   gap: 0.25rem 0.75rem;
+   margin: 0 0 0.45rem;
+}
+
+.field > label,
+.field legend {
+   flex: 0 0 8rem;
+   font-weight: bold;
+}
+
+.field input,
+.field select,
+.field textarea {
+   flex: 1 1 14rem;
+   max-width: 26rem;
+   padding: 0.3rem 0.4rem;
+   font: inherit;
+   border: 1px solid var(--rule);
+   border-radius: 3px;
+}
+
+.field [aria-invalid="true"],
+fieldset[aria-invalid="true"] {
+   border: 2px solid var(--error-border);
+}
+
+fieldset.rating {
+   display: block;
+   padding: 0.2rem 0;
+   border: 1px solid transparent;
+}
+
+fieldset.rating legend {
+   float: left;
+   width: 8.75rem;
+   padding: 0;
+}
+
+.rating label {
+   margin-right: 0.6rem;
+   color: var(--star);
+   white-space: nowrap;
+}
+
+button {
+   padding: 0.35rem 1rem;
+   font: inherit;
+   color: #fff;
+   background-color: var(--accent);
+   border: 0;
+   border-radius: 3px;
+   cursor: pointer;
+}
+
+button:hover {
+   background-color: var(--accent-dark);
+}
+
+button.delete {
+   padding: 0.15rem 0.6rem;
+   font-size: 0.9rem;
+   background-color: var(--error-border);
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+a:focus-visible,
+.reading-list li:focus-visible {
+   outline: 3px solid #ffbf47;
+   outline-offset: 2px;
+}
+
+/* Jill's reading list (jQuery) */
+.reading-list {
+   padding-left: 1.2rem;
+}
+
+.reading-list li {
+   margin-bottom: 0.2rem;
+   cursor: pointer;
+}
+
+.reading-list li.read {
+   color: var(--muted);
+   text-decoration: line-through;
+}
+
+/* text for screen readers only */
+.visually-hidden {
+   position: absolute;
+   width: 1px;
+   height: 1px;
+   overflow: hidden;
+   clip-path: inset(50%);
+   white-space: nowrap;
+}
+
+.site-footer {
+   max-width: 820px;
+   margin: 0.6rem auto;
+   padding: 0 1rem;
+   color: var(--muted);
+   text-align: center;
+   font-size: 0.9rem;
+}
+
+.site-footer p {
+   margin: 0.2rem 0;
+}
