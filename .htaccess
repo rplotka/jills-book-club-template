@@ -1,0 +1,2 @@
+# Never serve the git history: it holds every file and every old version.
+RedirectMatch 404 /\.git
