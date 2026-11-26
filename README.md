@@ -21,16 +21,14 @@ now a PHP + MariaDB app with its own database.
 
 ## Run it on your server
 
+Copy this folder to your VM (Lab 11 gives you the commands), then on the VM:
+
 ```bash
-sudo mariadb < setup.sql                      # creates the bookclub_jill database
-sudo mariadb -e "CREATE USER 'jill_app'@'localhost' IDENTIFIED BY 'a-long-password';
-  GRANT SELECT, INSERT, UPDATE, DELETE ON bookclub_jill.* TO 'jill_app'@'localhost';"
-cp includes/config.example.inc.php includes/config.inc.php   # then put that password in it
+sudo bash setup/install.sh git@github.com:YOU/jills-book-club.git   # read it first: it says what each step does
+sudo bash setup/check.sh                                            # PASS/FAIL for every piece, with the fix
 ```
 
-`includes/config.inc.php` holds the password. It is in `.gitignore`: never commit it.
-
-## For Codex (and any other AI)
-
-`AGENTS.md` lists the rules this code follows. Codex reads it before every task, so the code it
-writes matches the code that is already here.
+`install.sh` puts the site at `/var/www/html/bookclub`, creates the `bookclub_jill` database and its own
+`jill_app` user (the password goes only into `includes/config.inc.php`, which is never committed), connects the
+folder to your repo with a read-only deploy key, and writes `deploy-bookclub.php` (Lab 10's webhook, for this
+repo). It is safe to run again: it never reloads `setup.sql` over your data.
